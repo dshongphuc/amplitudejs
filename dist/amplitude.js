@@ -3549,6 +3549,9 @@ var AmplitudeEventsHelpers = function () {
 		}
 	}
 
+
+
+
 	/**
   * Sets the next song in a playlist
   *
@@ -5935,6 +5938,24 @@ var Amplitude = function () {
 		return _config2.default.songs.length - 1;
 	}
 
+
+
+
+	function addSongWithoutPlay(song) {
+		/*
+  	Ensures we have a songs array to push to.
+  */
+		if (_config2.default.songs == undefined) {
+			_config2.default.songs = [];
+		}
+
+		_config2.default.songs.push(song);
+		//_helpers4.default.setNext(); // <====We dont need to play it immediately
+		return _config2.default.songs.length - 1;
+	}
+
+
+
 	/**
   * Adds a song to a playlist. This will allow Amplitude to play the song in the
   * playlist
@@ -6383,6 +6404,7 @@ var Amplitude = function () {
 		getSongByIndex: getSongByIndex,
 		getSongAtPlaylistIndex: getSongAtPlaylistIndex,
 		addSong: addSong,
+		addSongWithoutPlay: addSongWithoutPlay,
 		addSongToPlaylist: addSongToPlaylist,
 		removeSong: removeSong,
 		removeSongFromPlaylist: removeSongFromPlaylist,
